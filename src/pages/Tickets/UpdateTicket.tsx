@@ -18,7 +18,6 @@ const UpdateTicket: React.FC<UpdateTicketProps> = (
   props: UpdateTicketProps
 ) => {
   const { setShowModal, id, defaultStatus } = props;
-  console.log("id", props);
   const [status, setStatus] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const history = useHistory();
@@ -35,8 +34,6 @@ const UpdateTicket: React.FC<UpdateTicketProps> = (
 
         return item;
       });
-
-      console.log("newArra", updateTicket);
 
       localStorage.setItem("tickets", JSON.stringify(updateTicket));
       setLoading(false);
@@ -150,14 +147,6 @@ const UpdateTicket: React.FC<UpdateTicketProps> = (
                     ) + "Loading.."
                   : "Update"}
               </button>
-              {/* <button
-                disabled
-                type="button"
-                class="py-2.5 px-5 mr-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center"
-              >
-                
-                Loading...
-              </button> */}
             </form>
           </div>
         </div>

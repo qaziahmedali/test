@@ -22,8 +22,6 @@ export const login = async (body: any) => {
 
 export const authenticate = (data: any, next: any) => {
   const result = JSON.stringify(data);
-  console.log("authenticate", data);
-  console.log("authenticate", result);
   if (typeof window !== "undefined") {
     localStorage.setItem("user", result);
     next();
@@ -35,10 +33,7 @@ export const me = async () => {
   if (data) {
     let result = JSON.parse(data);
     let user = {};
-    console.log("hello", loginData);
-    console.log("hello", result);
     if (result.data.email == loginData.email) {
-      console.log("helo");
       return (user = {
         _id: loginData._id,
         name: loginData.name,
